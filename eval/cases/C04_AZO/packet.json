@@ -1,0 +1,14 @@
+{
+  "ticker": "AZO",
+  "window_start": "2026-10-26",
+  "window_end": "2026-10-30",
+  "features": {
+    "as_of": "2026-10-30",
+    "last_close": 3169.82,
+    "return_5d_pct": -0.97,
+    "excess_return_5d_vs_spy_pct": -0.41,
+    "return_21d_pct": 12.44,
+    "momentum_12_1_pct": -24.0,
+    "volatility_20d_annualized_pct": 30.5
+  }
+}

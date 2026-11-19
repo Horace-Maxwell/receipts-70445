@@ -1,0 +1,14 @@
+{
+  "ticker": "GM",
+  "window_start": "2026-10-26",
+  "window_end": "2026-10-30",
+  "features": {
+    "as_of": "2026-10-30",
+    "last_close": 87.4,
+    "return_5d_pct": 15.12,
+    "excess_return_5d_vs_spy_pct": 15.68,
+    "return_21d_pct": 10.2,
+    "momentum_12_1_pct": 15.72,
+    "volatility_20d_annualized_pct": 40.9
+  }
+}

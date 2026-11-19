@@ -1,0 +1,16 @@
+{
+  "events": [
+    {
+      "name": "CFO Jamere Jackson resigned",
+      "items": [
+        "C04-05",
+        "C04-06"
+      ],
+      "critical": true
+    }
+  ],
+  "optional": [
+    "C04-04"
+  ],
+  "note": "C04-04 is the annual 10-K; its results were already announced in September, so it is optional."
+}

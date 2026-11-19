@@ -1,0 +1,17 @@
+{
+  "events": [
+    {
+      "name": "CFO Jessica Fischer resigned",
+      "items": [
+        "C03-04",
+        "C03-05"
+      ],
+      "critical": true,
+      "protected": true
+    }
+  ],
+  "optional": [
+    "C03-02"
+  ],
+  "note": "C03-02 is a Form 3 for a new insider; borderline. News items C03-07/08/09 are about other companies."
+}

@@ -1,0 +1,19 @@
+{
+  "events": [
+    {
+      "name": "Cybersecurity incident; company no longer expects to meet 2026 forecast",
+      "items": [
+        "C05-01",
+        "C05-02",
+        "C05-05",
+        "C05-06"
+      ],
+      "critical": false,
+      "protected": true
+    }
+  ],
+  "optional": [
+    "C05-04"
+  ],
+  "note": "C05-04 is a broker price-target cut that follows from the incident."
+}

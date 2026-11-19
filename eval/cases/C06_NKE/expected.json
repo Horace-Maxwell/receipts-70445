@@ -1,0 +1,15 @@
+{
+  "events": [
+    {
+      "name": "Q1 fiscal 2027 results and multi-year cost program (Items 2.02 and 2.05)",
+      "items": [
+        "C06-01",
+        "C06-02",
+        "C06-04"
+      ],
+      "critical": false
+    }
+  ],
+  "optional": [],
+  "note": "News collection returned nothing for this week (GDELT rate limit), so the packet is filings only."
+}

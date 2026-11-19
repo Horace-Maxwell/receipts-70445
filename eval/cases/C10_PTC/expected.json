@@ -1,0 +1,16 @@
+{
+  "events": [
+    {
+      "name": "Agreement to be acquired by Schneider Electric",
+      "items": [
+        "C10-05",
+        "C10-07",
+        "C10-02",
+        "C10-04"
+      ],
+      "critical": false
+    }
+  ],
+  "optional": [],
+  "note": "DEFA14A filings are merger communications for the same deal. C10-01 is a small insider sale."
+}

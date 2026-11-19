@@ -1,0 +1,14 @@
+{
+  "events": [
+    {
+      "name": "CEO Albert White stepped down",
+      "items": [
+        "C02-01",
+        "C02-02"
+      ],
+      "critical": true
+    }
+  ],
+  "optional": [],
+  "note": "Press release also reaffirms fiscal 2026 guidance; flagging that as part of the same event is fine."
+}

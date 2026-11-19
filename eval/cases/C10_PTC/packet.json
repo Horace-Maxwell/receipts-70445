@@ -1,0 +1,14 @@
+{
+  "ticker": "PTC",
+  "window_start": "2026-10-05",
+  "window_end": "2026-10-09",
+  "features": {
+    "as_of": "2026-10-09",
+    "last_close": 194.45,
+    "return_5d_pct": 35.01,
+    "excess_return_5d_vs_spy_pct": 33.85,
+    "return_21d_pct": 51.06,
+    "momentum_12_1_pct": -36.73,
+    "volatility_20d_annualized_pct": 121.1
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "EQT",
+  "window_start": "2026-10-26",
+  "window_end": "2026-10-30",
+  "features": {
+    "as_of": "2026-10-30",
+    "last_close": 55.21,
+    "return_5d_pct": -0.45,
+    "excess_return_5d_vs_spy_pct": 0.11,
+    "return_21d_pct": 10.56,
+    "momentum_12_1_pct": -2.16,
+    "volatility_20d_annualized_pct": 28.6
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "NKE",
+  "window_start": "2026-09-28",
+  "window_end": "2026-10-02",
+  "features": {
+    "as_of": "2026-10-02",
+    "last_close": 33.87,
+    "return_5d_pct": -5.26,
+    "excess_return_5d_vs_spy_pct": -5.04,
+    "return_21d_pct": -11.43,
+    "momentum_12_1_pct": -46.76,
+    "volatility_20d_annualized_pct": 23.0
+  }
+}

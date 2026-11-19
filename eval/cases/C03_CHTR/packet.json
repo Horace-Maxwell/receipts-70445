@@ -1,0 +1,14 @@
+{
+  "ticker": "CHTR",
+  "window_start": "2026-08-31",
+  "window_end": "2026-09-04",
+  "features": {
+    "as_of": "2026-09-04",
+    "last_close": 151.99,
+    "return_5d_pct": -1.06,
+    "excess_return_5d_vs_spy_pct": -1.17,
+    "return_21d_pct": -3.46,
+    "momentum_12_1_pct": -39.33,
+    "volatility_20d_annualized_pct": 60.5
+  }
+}
