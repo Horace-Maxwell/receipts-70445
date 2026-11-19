@@ -1,0 +1,14 @@
+{
+  "ticker": "AMZN",
+  "window_start": "2026-11-09",
+  "window_end": "2026-11-13",
+  "features": {
+    "as_of": "2026-11-13",
+    "last_close": 266.66,
+    "return_5d_pct": 2.84,
+    "excess_return_5d_vs_spy_pct": 0.24,
+    "return_21d_pct": 4.67,
+    "momentum_12_1_pct": 4.32,
+    "volatility_20d_annualized_pct": 42.0
+  }
+}

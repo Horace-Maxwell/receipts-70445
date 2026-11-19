@@ -1,0 +1,14 @@
+{
+  "ticker": "MSFT",
+  "window_start": "2026-11-09",
+  "window_end": "2026-11-13",
+  "features": {
+    "as_of": "2026-11-13",
+    "last_close": 523.88,
+    "return_5d_pct": -1.27,
+    "excess_return_5d_vs_spy_pct": -3.86,
+    "return_21d_pct": -2.88,
+    "momentum_12_1_pct": 6.4,
+    "volatility_20d_annualized_pct": 36.9
+  }
+}

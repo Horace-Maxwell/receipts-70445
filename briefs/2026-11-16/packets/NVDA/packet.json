@@ -1,0 +1,14 @@
+{
+  "ticker": "NVDA",
+  "window_start": "2026-11-09",
+  "window_end": "2026-11-13",
+  "features": {
+    "as_of": "2026-11-13",
+    "last_close": 162.85,
+    "return_5d_pct": -12.75,
+    "excess_return_5d_vs_spy_pct": -15.34,
+    "return_21d_pct": -25.03,
+    "momentum_12_1_pct": 12.36,
+    "volatility_20d_annualized_pct": 52.8
+  }
+}

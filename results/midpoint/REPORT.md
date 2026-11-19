@@ -1,6 +1,6 @@
 # Test results: midpoint
 
-Generated 2026-11-18T21:14:45.
+Generated 2026-11-18T21:16:50.
 
 | Criterion | Result | Pass |
 |---|---|---|
@@ -45,3 +45,25 @@ Generated 2026-11-18T21:14:45.
 | C10_PTC | 3 | Neutral | 80 | 1/1 | 0/0 | pass |  |  |
 
 ## Failures, verbatim
+
+No run failed a pass criterion.
+
+### First answers that failed the source check (fixed by the one allowed retry)
+
+**C05_BSX run 2**
+- flags[0].why: numbers ['3'] not in the cited quote or price inputs
+- evidence_for[1].claim: numbers ['28'] not in the cited quote or price inputs
+
+**C06_NKE run 2**
+- flags[0].why: numbers ['2027'] not in the cited quote or price inputs
+
+**C06_NKE run 3**
+- evidence_against[1].claim: numbers ['2027'] not in the cited quote or price inputs
+
+**C10_PTC run 1**
+- summary: numbers ['35'] not found in any document or price input
+
+**C10_PTC run 3**
+- evidence_for[0].claim: numbers ['2'] not in the cited quote or price inputs
+
+### Final failures

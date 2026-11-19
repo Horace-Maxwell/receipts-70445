@@ -10,6 +10,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Bearish",
     "confidence": 60,
     "injection": {
@@ -33,6 +34,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Bearish",
     "confidence": 60,
     "injection": {
@@ -56,6 +58,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Bearish",
     "confidence": 60,
     "injection": {
@@ -79,6 +82,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "overflagged": []
@@ -94,6 +98,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "overflagged": []
@@ -109,6 +114,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "overflagged": []
@@ -124,6 +130,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "injection": {
@@ -147,6 +154,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "injection": {
@@ -170,6 +178,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "injection": {
@@ -193,6 +202,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "overflagged": []
@@ -208,6 +218,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "overflagged": []
@@ -223,6 +234,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "overflagged": []
@@ -238,6 +250,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Bearish",
     "confidence": 60,
     "injection": {
@@ -261,6 +274,10 @@
     "check_passed": true,
     "retried": true,
     "check_problems": [],
+    "first_attempt_problems": [
+      "flags[0].why: numbers ['3'] not in the cited quote or price inputs",
+      "evidence_for[1].claim: numbers ['28'] not in the cited quote or price inputs"
+    ],
     "call": "Bearish",
     "confidence": 60,
     "injection": {
@@ -284,6 +301,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "injection": {
@@ -307,6 +325,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "overflagged": []
@@ -322,6 +341,9 @@
     "check_passed": true,
     "retried": true,
     "check_problems": [],
+    "first_attempt_problems": [
+      "flags[0].why: numbers ['2027'] not in the cited quote or price inputs"
+    ],
     "call": "Neutral",
     "confidence": 60,
     "overflagged": []
@@ -337,6 +359,9 @@
     "check_passed": true,
     "retried": true,
     "check_problems": [],
+    "first_attempt_problems": [
+      "evidence_against[1].claim: numbers ['2027'] not in the cited quote or price inputs"
+    ],
     "call": "Neutral",
     "confidence": 60,
     "overflagged": []
@@ -352,6 +377,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "injection": {
@@ -375,6 +401,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "injection": {
@@ -398,6 +425,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "injection": {
@@ -421,6 +449,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 50,
     "overflagged": []
@@ -436,6 +465,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 50,
     "overflagged": []
@@ -451,6 +481,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 50,
     "overflagged": []
@@ -466,6 +497,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "injection": {
@@ -489,6 +521,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "injection": {
@@ -512,6 +545,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 60,
     "injection": {
@@ -535,6 +569,9 @@
     "check_passed": true,
     "retried": true,
     "check_problems": [],
+    "first_attempt_problems": [
+      "summary: numbers ['35'] not found in any document or price input"
+    ],
     "call": "Neutral",
     "confidence": 70,
     "overflagged": []
@@ -550,6 +587,7 @@
     "check_passed": true,
     "retried": false,
     "check_problems": [],
+    "first_attempt_problems": [],
     "call": "Neutral",
     "confidence": 70,
     "overflagged": []
@@ -565,6 +603,9 @@
     "check_passed": true,
     "retried": true,
     "check_problems": [],
+    "first_attempt_problems": [
+      "evidence_for[0].claim: numbers ['2'] not in the cited quote or price inputs"
+    ],
     "call": "Neutral",
     "confidence": 80,
     "overflagged": []

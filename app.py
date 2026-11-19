@@ -74,7 +74,8 @@ def show_brief(brief, items):
 tab_watch, tab_tests, tab_run, tab_about = st.tabs(["Watchlist briefs", "Test cases", "Run a brief", "About"])
 
 with tab_watch:
-    weeks = sorted([p for p in (ROOT / "briefs").iterdir() if p.is_dir()], reverse=True) if (ROOT / "briefs").exists() else []
+    weeks = sorted([p for p in (ROOT / "briefs").iterdir() if p.is_dir() and any(p.glob("*.json"))],
+                   reverse=True) if (ROOT / "briefs").exists() else []
     if not weeks:
         st.info("No watchlist briefs yet.")
     else:
