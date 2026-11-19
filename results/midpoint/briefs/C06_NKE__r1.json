@@ -1,0 +1,85 @@
+{
+  "ticker": "NKE",
+  "call": "Neutral",
+  "confidence": 60,
+  "summary": "Nike reported a first quarter with falling revenue but better gross margin, guided fiscal 2027 revenue down by a high-single-digit rate, and announced a large multi-year restructuring with sizable charges and long-dated savings. The stock has already fallen sharply over the past month, and the negative guidance is offset by the cost program and margin gains, so the net expected move against the S&P 500 is unclear.",
+  "flags": [
+    {
+      "item_id": "C06-04",
+      "critical": false,
+      "direction": "mixed",
+      "why": "Earnings release shows lower revenue and a revenue decline outlook, partly offset by gross margin expansion.",
+      "quote": "Revenues are expected to decline high-single digits in fiscal 2027"
+    },
+    {
+      "item_id": "C06-02",
+      "critical": false,
+      "direction": "mixed",
+      "why": "A multi-year restructuring program brings roughly $1.0 billion of pre-tax charges against long-term savings.",
+      "quote": "The Company expects the program to deliver approximately $2.5 billion in cumulative savings through fiscal 2031."
+    }
+  ],
+  "evidence_for": [
+    {
+      "claim": "Gross margin expanded 60 basis points to 42.8 percent on lower warehousing and logistics costs.",
+      "item_id": "C06-04",
+      "quote": "Gross margin expanded 60 basis points to 42.8 percent, primarily due to lower warehousing and logistics costs."
+    },
+    {
+      "claim": "The Pace program is expected to deliver approximately $2.5 billion in cumulative savings through fiscal 2031.",
+      "item_id": "C06-02",
+      "quote": "The Company expects the program to deliver approximately $2.5 billion in cumulative savings through fiscal 2031."
+    }
+  ],
+  "evidence_against": [
+    {
+      "claim": "Nike guided fiscal 2027 revenues to decline by a high-single-digit rate.",
+      "item_id": "C06-04",
+      "quote": "Revenues are expected to decline high-single digits in fiscal 2027"
+    },
+    {
+      "claim": "NIKE Direct revenues were down 8 percent on a reported basis, a weak spot in the quarter.",
+      "item_id": "C06-04",
+      "quote": "NIKE Direct revenues were $4.1 billion, down 8 percent on a reported basis and down 9 percent on a currency-neutral basis"
+    },
+    {
+      "claim": "The restructuring carries pre-tax charges of approximately $1.0 billion.",
+      "item_id": "C06-02",
+      "quote": "expected to result in pre-tax charges of approximately $1.0 billion"
+    }
+  ],
+  "would_change_call": "Evidence that revenue is stabilizing faster than the high-single-digit decline guided, or that the Pace savings are arriving earlier or larger than planned, would move the call toward Bullish, while a further guidance cut would move it toward Bearish.",
+  "ignored": [
+    {
+      "item_id": "C06-03",
+      "reason": "rumor"
+    },
+    {
+      "item_id": "C06-01",
+      "reason": "duplicate"
+    },
+    {
+      "item_id": "C06-05",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C06-06",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C06-07",
+      "reason": "routine"
+    }
+  ],
+  "suspicious_items": [],
+  "_check": {
+    "passed": true,
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": []
+      }
+    ],
+    "prompt_version": "v1 (2026-11-18)"
+  }
+}

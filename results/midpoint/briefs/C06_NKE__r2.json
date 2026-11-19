@@ -1,0 +1,81 @@
+{
+  "ticker": "NKE",
+  "call": "Neutral",
+  "confidence": 60,
+  "summary": "Nike reported a revenue decline and guided to a high-single-digit revenue decline for the full year, but margins improved and it announced a large multi-year cost program. The stock has already fallen sharply, so the weak outlook and the savings plan roughly offset. An unconfirmed dividend-cut post is treated as a rumor and not weighed.",
+  "flags": [
+    {
+      "item_id": "C06-02",
+      "critical": false,
+      "direction": "mixed",
+      "why": "A large multi-year restructuring program with a sizable savings target, but with substantial charges and execution risk.",
+      "quote": "The Company expects the program to deliver approximately $2.5 billion in cumulative savings through fiscal 2031."
+    },
+    {
+      "item_id": "C06-04",
+      "critical": false,
+      "direction": "negative",
+      "why": "Company guidance calls for a high-single-digit revenue decline for the full year.",
+      "quote": "Revenues are expected to decline high-single digits in fiscal 2027 ."
+    }
+  ],
+  "evidence_for": [
+    {
+      "claim": "Gross margin expanded on lower logistics costs, a partial offset to weak sales.",
+      "item_id": "C06-04",
+      "quote": "Gross margin expanded 60 basis points to 42.8 percent, primarily due to lower warehousing and logistics costs."
+    }
+  ],
+  "evidence_against": [
+    {
+      "claim": "Full-year revenue is guided to decline, which points to continued top-line pressure.",
+      "item_id": "C06-04",
+      "quote": "Revenues are expected to decline high-single digits in fiscal 2027 ."
+    },
+    {
+      "claim": "Converse revenue fell sharply across all territories.",
+      "item_id": "C06-04",
+      "quote": "Revenues for Converse were $263 million, down 28 percent on a reported and currency-neutral basis, due to declines across all territories."
+    }
+  ],
+  "would_change_call": "Evidence that sales trends are stabilizing or deteriorating well beyond the current guidance would shift the call toward Bullish or Bearish.",
+  "ignored": [
+    {
+      "item_id": "C06-01",
+      "reason": "duplicate"
+    },
+    {
+      "item_id": "C06-03",
+      "reason": "rumor"
+    },
+    {
+      "item_id": "C06-05",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C06-06",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C06-07",
+      "reason": "routine"
+    }
+  ],
+  "suspicious_items": [],
+  "_check": {
+    "passed": true,
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": [
+          "flags[0].why: numbers ['2027'] not in the cited quote or price inputs"
+        ]
+      },
+      {
+        "attempt": 2,
+        "problems": []
+      }
+    ],
+    "prompt_version": "v1 (2026-11-18)"
+  }
+}

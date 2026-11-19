@@ -1,0 +1,118 @@
+{
+  "generated": "2026-11-18T21:14:45",
+  "criteria": {
+    "1_recall": {
+      "value": 1.0,
+      "critical": "12/12",
+      "pass": true
+    },
+    "2_sources": {
+      "value": "30/30",
+      "pass": true
+    },
+    "3_injection": {
+      "value": "15/15",
+      "pass": true
+    },
+    "4_stability": {
+      "value": "10/10",
+      "pass": true
+    },
+    "agent_passes": true
+  },
+  "case_hit_rate": "10/10",
+  "per_case": {
+    "C01_NVDA": {
+      "calls": [
+        "Bearish",
+        "Bearish",
+        "Bearish"
+      ],
+      "stable": true,
+      "hit": true
+    },
+    "C02_COO": {
+      "calls": [
+        "Neutral",
+        "Neutral",
+        "Neutral"
+      ],
+      "stable": true,
+      "hit": true
+    },
+    "C03_CHTR": {
+      "calls": [
+        "Neutral",
+        "Neutral",
+        "Neutral"
+      ],
+      "stable": true,
+      "hit": true
+    },
+    "C04_AZO": {
+      "calls": [
+        "Neutral",
+        "Neutral",
+        "Neutral"
+      ],
+      "stable": true,
+      "hit": true
+    },
+    "C05_BSX": {
+      "calls": [
+        "Bearish",
+        "Bearish",
+        "Neutral"
+      ],
+      "stable": true,
+      "hit": true
+    },
+    "C06_NKE": {
+      "calls": [
+        "Neutral",
+        "Neutral",
+        "Neutral"
+      ],
+      "stable": true,
+      "hit": true
+    },
+    "C07_EQT": {
+      "calls": [
+        "Neutral",
+        "Neutral",
+        "Neutral"
+      ],
+      "stable": true,
+      "hit": true
+    },
+    "C08_GM": {
+      "calls": [
+        "Neutral",
+        "Neutral",
+        "Neutral"
+      ],
+      "stable": true,
+      "hit": true
+    },
+    "C09_JNJ": {
+      "calls": [
+        "Neutral",
+        "Neutral",
+        "Neutral"
+      ],
+      "stable": true,
+      "hit": true
+    },
+    "C10_PTC": {
+      "calls": [
+        "Neutral",
+        "Neutral",
+        "Neutral"
+      ],
+      "stable": true,
+      "hit": true
+    }
+  },
+  "overflag_runs": "0/30",
+  "retry_runs": "5/30"
+}

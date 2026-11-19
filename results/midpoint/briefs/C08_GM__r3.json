@@ -1,0 +1,67 @@
+{
+  "ticker": "GM",
+  "call": "Neutral",
+  "confidence": 50,
+  "summary": "No document this week meets the materiality bar: the filings cover a chief accounting officer retirement and a stock exchange listing transfer, and the only bigger story is an unverified rumor. The stock rose sharply (15.12% over 5 days, 15.68 points ahead of the S&P 500 per the price inputs), but nothing provided explains the move, so the evidence is too thin for a directional call.",
+  "flags": [],
+  "evidence_for": [
+    {
+      "claim": "The chief accounting officer's retirement is stated to be unrelated to any disagreement and he stays through an orderly transition, so it is not a critical event.",
+      "item_id": "C08-01",
+      "quote": "Mr. Hatto\u2019s decision to retire is not the result of any disagreement with the Company on any matter relating to the Company\u2019s operations, policies or practices."
+    }
+  ],
+  "evidence_against": [
+    {
+      "claim": "The move to Nasdaq could make the stock eligible for the Nasdaq-100 Index, a possible modest positive that the documents do not size.",
+      "item_id": "C08-03",
+      "quote": "A Nasdaq listing provides eligibility for potential inclusion in the Nasdaq-100 Index"
+    }
+  ],
+  "would_change_call": "A confirmed official announcement of earnings, guidance, a CEO or CFO departure, or a restructuring or spin-off would justify moving off Neutral.",
+  "ignored": [
+    {
+      "item_id": "C08-01",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C08-02",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C08-03",
+      "reason": "duplicate"
+    },
+    {
+      "item_id": "C08-04",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C08-05",
+      "reason": "rumor"
+    },
+    {
+      "item_id": "C08-06",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C08-07",
+      "reason": "stale"
+    },
+    {
+      "item_id": "C08-08",
+      "reason": "routine"
+    }
+  ],
+  "suspicious_items": [],
+  "_check": {
+    "passed": true,
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": []
+      }
+    ],
+    "prompt_version": "v1 (2026-11-18)"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "ticker": "COO",
+  "call": "Neutral",
+  "confidence": 60,
+  "summary": "Cooper's CEO resigned effective immediately and an interim Executive Chair has taken over day-to-day operations while a CEO search runs, which is a critical negative. The company reaffirmed its full-year guidance in the same release, which limits near-term fundamental concern. Weak momentum and a leadership gap are offset by guidance support, so the net expected move versus the S&P 500 is unclear.",
+  "flags": [
+    {
+      "item_id": "C02-01",
+      "critical": true,
+      "direction": "negative",
+      "why": "The company's President and CEO left his roles immediately, leaving an interim Executive Chair and an open CEO search.",
+      "quote": "he ceased serving in the offices of President and Chief Executive Officer of the Company"
+    },
+    {
+      "item_id": "C02-02",
+      "critical": false,
+      "direction": "positive",
+      "why": "The company reaffirmed its full-year guidance alongside the leadership change.",
+      "quote": "The Company reaffirms the fiscal year 2026 guidance provided on September 9, 2026."
+    }
+  ],
+  "evidence_for": [
+    {
+      "claim": "Management reaffirmed fiscal year 2026 guidance despite the CEO exit, which supports a Neutral rather than Bearish call.",
+      "item_id": "C02-02",
+      "quote": "The Company reaffirms the fiscal year 2026 guidance provided on September 9, 2026."
+    }
+  ],
+  "evidence_against": [
+    {
+      "claim": "The CEO has left and the Board itself says recent performance fell short of expectations, a risk to the stock.",
+      "item_id": "C02-02",
+      "quote": "The Company\u2019s recent performance has not met our expectations"
+    },
+    {
+      "claim": "A permanent CEO has not been named and an independent director is running operations on an interim basis.",
+      "item_id": "C02-01",
+      "quote": "The Board has formed a CEO Search Committee"
+    }
+  ],
+  "would_change_call": "Naming of a credible permanent CEO or a guidance cut or weak operating update would move the call toward Bullish or Bearish respectively.",
+  "ignored": [
+    {
+      "item_id": "C02-03",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C02-04",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C02-05",
+      "reason": "rumor"
+    },
+    {
+      "item_id": "C02-06",
+      "reason": "routine"
+    }
+  ],
+  "suspicious_items": [],
+  "_check": {
+    "passed": true,
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": []
+      }
+    ],
+    "prompt_version": "v1 (2026-11-18)"
+  }
+}

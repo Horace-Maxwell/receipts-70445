@@ -1,0 +1,86 @@
+{
+  "ticker": "NKE",
+  "call": "Neutral",
+  "confidence": 60,
+  "summary": "Nike reported a quarter with falling revenue but better gross margin, guided to a high-single-digit revenue decline for the year, and announced the Pace restructuring with large charges and long-dated savings. The stock has already fallen sharply, so the negatives look partly priced in while the cost program offers some offset. The net effect against the S&P 500 is unclear.",
+  "flags": [
+    {
+      "item_id": "C06-04",
+      "critical": false,
+      "direction": "mixed",
+      "why": "The earnings release pairs a full-year outlook for a high-single-digit revenue decline with an adjusted profit range and a better gross margin.",
+      "quote": "Revenues are expected to decline high-single digits in fiscal 2027"
+    },
+    {
+      "item_id": "C06-02",
+      "critical": false,
+      "direction": "mixed",
+      "why": "The Pace program is a large multi-year restructuring with sizeable charges up front and savings spread over several years.",
+      "quote": "The Company expects the program to deliver approximately $2.5 billion in cumulative savings through fiscal 2031."
+    }
+  ],
+  "evidence_for": [
+    {
+      "claim": "Pace is expected to deliver about $2.5 billion in cumulative savings.",
+      "item_id": "C06-02",
+      "quote": "The Company expects the program to deliver approximately $2.5 billion in cumulative savings through fiscal 2031"
+    },
+    {
+      "claim": "Gross margin expanded 60 basis points to 42.8 percent, helped by lower logistics costs.",
+      "item_id": "C06-04",
+      "quote": "Gross margin expanded 60 basis points to 42.8 percent, primarily due to lower warehousing and logistics costs."
+    }
+  ],
+  "evidence_against": [
+    {
+      "claim": "Management expects revenue to decline by a high-single-digit percentage for the full year.",
+      "item_id": "C06-04",
+      "quote": "Revenues are expected to decline high-single digits in fiscal 2027"
+    },
+    {
+      "claim": "First quarter revenues fell 4 percent on a reported basis.",
+      "item_id": "C06-04",
+      "quote": "First quarter revenues were $11.2 billion, down 4 percent on a reported basis"
+    }
+  ],
+  "would_change_call": "Evidence that revenue is stabilizing faster than the decline guided, or a further guidance cut, would move the call toward Bullish or Bearish.",
+  "ignored": [
+    {
+      "item_id": "C06-01",
+      "reason": "duplicate"
+    },
+    {
+      "item_id": "C06-03",
+      "reason": "rumor"
+    },
+    {
+      "item_id": "C06-05",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C06-06",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C06-07",
+      "reason": "routine"
+    }
+  ],
+  "suspicious_items": [],
+  "_check": {
+    "passed": true,
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": [
+          "evidence_against[1].claim: numbers ['2027'] not in the cited quote or price inputs"
+        ]
+      },
+      {
+        "attempt": 2,
+        "problems": []
+      }
+    ],
+    "prompt_version": "v1 (2026-11-18)"
+  }
+}

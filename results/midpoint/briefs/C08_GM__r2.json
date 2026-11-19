@@ -1,0 +1,67 @@
+{
+  "ticker": "GM",
+  "call": "Neutral",
+  "confidence": 50,
+  "summary": "The week's filings are routine: GM is moving its listing from the NYSE to Nasdaq and its chief accounting officer plans to retire in 2027, with no disagreement cited. The stock already rose sharply over the last five days, but none of the provided documents explains that move or contains earnings, guidance or other material news. With little material information, the call is Neutral.",
+  "flags": [],
+  "evidence_for": [
+    {
+      "claim": "The Nasdaq transfer makes the stock eligible for possible inclusion in the Nasdaq-100 Index, which could be a mild positive.",
+      "item_id": "C08-03",
+      "quote": "A Nasdaq listing provides eligibility for potential inclusion in the Nasdaq-100 Index"
+    }
+  ],
+  "evidence_against": [
+    {
+      "claim": "The chief accounting officer is retiring and no successor has been named yet, a small source of uncertainty (not a CEO or CFO departure).",
+      "item_id": "C08-01",
+      "quote": "The Company will announce the appointment of a successor principal accounting officer at a later date."
+    }
+  ],
+  "would_change_call": "A restatement, guidance change, earnings surprise, or a confirmed official announcement of a major transaction would move the call away from Neutral.",
+  "ignored": [
+    {
+      "item_id": "C08-01",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C08-02",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C08-03",
+      "reason": "duplicate"
+    },
+    {
+      "item_id": "C08-04",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C08-05",
+      "reason": "rumor"
+    },
+    {
+      "item_id": "C08-06",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C08-07",
+      "reason": "stale"
+    },
+    {
+      "item_id": "C08-08",
+      "reason": "routine"
+    }
+  ],
+  "suspicious_items": [],
+  "_check": {
+    "passed": true,
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": []
+      }
+    ],
+    "prompt_version": "v1 (2026-11-18)"
+  }
+}

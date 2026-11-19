@@ -1,0 +1,88 @@
+{
+  "ticker": "AZO",
+  "call": "Neutral",
+  "confidence": 60,
+  "summary": "AutoZone's CFO resigned to take the same role at another company, which is a critical item, but the company says the exit is unrelated to its results and that a search for a successor has begun. The stock has rallied over the past month but trails the market slightly this week, and the only takeover talk is an unverified message-board post. With one negative event and mixed price signals, the net expected move versus the S&P 500 looks small.",
+  "flags": [
+    {
+      "item_id": "C04-05",
+      "critical": true,
+      "direction": "negative",
+      "why": "The company's own Chief Financial Officer has resigned, which is a critical leadership change, though the filing says it is unrelated to results or accounting disagreements.",
+      "quote": "he has resigned from his position as Chief Financial Officer of the Company effective November 25, 2026"
+    }
+  ],
+  "evidence_for": [
+    {
+      "claim": "The filing says the CFO's departure is not tied to financial results or disagreements with the company.",
+      "item_id": "C04-05",
+      "quote": "His departure is not related to the Company's financial or operating results"
+    },
+    {
+      "claim": "The CEO says strategies are well established and the company is on track, which limits the odds of a large negative surprise.",
+      "item_id": "C04-06",
+      "quote": "Our strategies are well established, and we believe we are on track for a solid fiscal 2027."
+    }
+  ],
+  "evidence_against": [
+    {
+      "claim": "The CFO role will be vacant after the effective date and the company has only just begun looking for a replacement.",
+      "item_id": "C04-06",
+      "quote": "We have commenced an external search for his successor."
+    }
+  ],
+  "would_change_call": "A confirmed acquisition offer or a guidance change would move the call toward Bullish, while an accounting problem or a further senior departure would move it toward Bearish.",
+  "ignored": [
+    {
+      "item_id": "C04-01",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C04-02",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C04-03",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C04-04",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C04-06",
+      "reason": "duplicate"
+    },
+    {
+      "item_id": "C04-07",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C04-08",
+      "reason": "stale"
+    },
+    {
+      "item_id": "C04-09",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C04-10",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C04-11",
+      "reason": "rumor"
+    }
+  ],
+  "suspicious_items": [],
+  "_check": {
+    "passed": true,
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": []
+      }
+    ],
+    "prompt_version": "v1 (2026-11-18)"
+  }
+}

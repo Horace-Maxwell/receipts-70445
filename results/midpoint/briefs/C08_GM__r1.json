@@ -1,0 +1,67 @@
+{
+  "ticker": "GM",
+  "call": "Neutral",
+  "confidence": 50,
+  "summary": "None of the filings this week look likely to move GM against the S&P 500: the company is moving its listing to Nasdaq and its chief accounting officer plans to retire next year, with no earnings, guidance, CEO or CFO change or restatement in the documents. The stock rose sharply over the past five days, but nothing provided explains why. With little material information, the call is Neutral at low confidence.",
+  "flags": [],
+  "evidence_for": [
+    {
+      "claim": "The move to Nasdaq brings eligibility for possible inclusion in the Nasdaq-100 Index, a speculative potential source of demand.",
+      "item_id": "C08-03",
+      "quote": "A Nasdaq listing provides eligibility for potential inclusion in the Nasdaq-100 Index"
+    }
+  ],
+  "evidence_against": [
+    {
+      "claim": "The chief accounting officer is retiring and no successor has been named yet, a minor uncertainty, though the filing says the departure is orderly and not due to any disagreement.",
+      "item_id": "C08-01",
+      "quote": "The Company will announce the appointment of a successor principal accounting officer at a later date."
+    }
+  ],
+  "would_change_call": "A guidance change, an earnings surprise, a CEO or CFO departure, or a confirmed company announcement of a major transaction would change the call.",
+  "ignored": [
+    {
+      "item_id": "C08-01",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C08-02",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C08-03",
+      "reason": "duplicate"
+    },
+    {
+      "item_id": "C08-04",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C08-05",
+      "reason": "rumor"
+    },
+    {
+      "item_id": "C08-06",
+      "reason": "routine"
+    },
+    {
+      "item_id": "C08-07",
+      "reason": "stale"
+    },
+    {
+      "item_id": "C08-08",
+      "reason": "routine"
+    }
+  ],
+  "suspicious_items": [],
+  "_check": {
+    "passed": true,
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": []
+      }
+    ],
+    "prompt_version": "v1 (2026-11-18)"
+  }
+}
