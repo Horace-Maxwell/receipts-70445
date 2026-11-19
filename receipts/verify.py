@@ -13,9 +13,15 @@ def norm(s):
 NUM = re.compile(r"\d[\d,]*(?:\.\d+)?")
 
 
+# Terms the prompt itself defines; their digits are names, not facts to source.
+DEFINED_TERMS = re.compile(r"S&P\s*500|\b20[- ](?:trading[- ])?days?\b|\b20-day\b|\b2 percentage points?\b|"
+                           r"\b12-1\b|\b10-[QK]\b|\b8-K\b|Form [34]\b|\b10b5-1\b|Item \d\.\d\d", re.I)
+
+
 def numbers(s):
     out = set()
-    for n in NUM.findall(s or ""):
+    s = DEFINED_TERMS.sub(" ", s or "")
+    for n in NUM.findall(s):
         n = n.replace(",", "").rstrip(".")
         if "." in n:
             n = n.rstrip("0").rstrip(".")
