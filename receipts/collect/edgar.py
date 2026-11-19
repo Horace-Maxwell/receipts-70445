@@ -135,4 +135,26 @@ def filings(ticker, start, end):
         else:
             desc = rec.get("primaryDocDescription", [""] * len(rec["form"]))[i] or form
             items.append({**base, "title": f"{title} {form}", "text": f"{title} filed a {form} ({desc}) on {date}."})
-    return items
+    return _collapse_routine(items, cik)
+
+
+ROUTINE_FORMS = ("424B2", "424B3", "424B5", "FWP", "13F-HR", "SC 13G", "SC 13G/A", "SCHEDULE 13G", "SCHEDULE 13G/A", "144", "4")
+
+
+def _collapse_routine(items, cik, keep=3):
+    """Big banks file hundreds of note supplements a week; keep a few and summarize the rest in one item."""
+    out, extra = [], {}
+    seen = {}
+    for it in items:
+        k = it["kind"]
+        if k in ROUTINE_FORMS:
+            seen[k] = seen.get(k, 0) + 1
+            if seen[k] > keep:
+                extra.setdefault(k, []).append(it["date"])
+                continue
+        out.append(it)
+    for k, dates in extra.items():
+        out.append({"source": "SEC EDGAR", "kind": k, "date": max(dates), "url": f"https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK={cik}&type={k}",
+                    "title": f"{len(dates)} more {k} filings",
+                    "text": f"{len(dates)} more routine {k} filings between {min(dates)} and {max(dates)}, not listed one by one."})
+    return out
