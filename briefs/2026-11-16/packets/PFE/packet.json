@@ -1,0 +1,14 @@
+{
+  "ticker": "PFE",
+  "window_start": "2026-11-09",
+  "window_end": "2026-11-13",
+  "features": {
+    "as_of": "2026-11-13",
+    "last_close": 28.89,
+    "return_5d_pct": -1.7,
+    "excess_return_5d_vs_spy_pct": -4.3,
+    "return_21d_pct": -0.44,
+    "momentum_12_1_pct": 19.67,
+    "volatility_20d_annualized_pct": 24.6
+  }
+}

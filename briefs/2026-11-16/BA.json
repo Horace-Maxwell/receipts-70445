@@ -1,0 +1,47 @@
+{
+  "ticker": "BA",
+  "call": "Neutral",
+  "confidence": 50,
+  "summary": "None of the six documents this week is material: they are routine SEC filings, a macro snapshot and two FAA rules about other aircraft makers or aircraft types. The only signal is price weakness, with the stock trailing the S&P 500 by 3.69 points over five days and down 9.13% over 21 days. With no company news to explain or reverse that, the call is Neutral at low confidence.",
+  "flags": [],
+  "evidence_for": [],
+  "evidence_against": [],
+  "would_change_call": "A credible company disclosure on earnings, guidance, a Boeing CEO or CFO change, a restatement, or major regulatory or litigation action would change the call.",
+  "ignored": [
+    {
+      "item_id": "BA-01",
+      "reason": "routine"
+    },
+    {
+      "item_id": "BA-02",
+      "reason": "routine"
+    },
+    {
+      "item_id": "BA-03",
+      "reason": "routine"
+    },
+    {
+      "item_id": "BA-04",
+      "reason": "routine"
+    },
+    {
+      "item_id": "BA-05",
+      "reason": "routine"
+    },
+    {
+      "item_id": "BA-06",
+      "reason": "routine"
+    }
+  ],
+  "suspicious_items": [],
+  "_check": {
+    "passed": true,
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": []
+      }
+    ],
+    "prompt_version": "v1 (2026-11-18)"
+  }
+}

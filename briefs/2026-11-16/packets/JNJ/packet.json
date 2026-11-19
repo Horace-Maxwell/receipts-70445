@@ -1,0 +1,14 @@
+{
+  "ticker": "JNJ",
+  "window_start": "2026-11-09",
+  "window_end": "2026-11-13",
+  "features": {
+    "as_of": "2026-11-13",
+    "last_close": 285.75,
+    "return_5d_pct": 3.45,
+    "excess_return_5d_vs_spy_pct": 0.86,
+    "return_21d_pct": 12.82,
+    "momentum_12_1_pct": 33.23,
+    "volatility_20d_annualized_pct": 25.7
+  }
+}

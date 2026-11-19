@@ -1,0 +1,75 @@
+{
+  "ticker": "AAPL",
+  "call": "Neutral",
+  "confidence": 50,
+  "summary": "The only potentially material item this week is a multi-series bond issuance disclosed in an 8-K, which does not clearly point in either direction. The rest of the coverage is routine filings, product commentary, spam listings or news about other companies. With little decision-relevant information, the call is Neutral with low confidence.",
+  "flags": [
+    {
+      "item_id": "AAPL-03",
+      "critical": false,
+      "direction": "unclear",
+      "why": "Apple completed a multi-series senior notes offering, which is a financing event whose effect on the stock relative to the S&P 500 is unclear.",
+      "quote": "consummated the issuance and sale of $500,000,000 aggregate principal amount of its Floating Rate Notes due 2028"
+    }
+  ],
+  "evidence_for": [],
+  "evidence_against": [],
+  "would_change_call": "A guidance change, earnings surprise, or a confirmed departure of Apple's own CEO or CFO would move the call away from Neutral.",
+  "ignored": [
+    {
+      "item_id": "AAPL-01",
+      "reason": "routine"
+    },
+    {
+      "item_id": "AAPL-02",
+      "reason": "routine"
+    },
+    {
+      "item_id": "AAPL-04",
+      "reason": "routine"
+    },
+    {
+      "item_id": "AAPL-05",
+      "reason": "rumor"
+    },
+    {
+      "item_id": "AAPL-06",
+      "reason": "routine"
+    },
+    {
+      "item_id": "AAPL-07",
+      "reason": "routine"
+    },
+    {
+      "item_id": "AAPL-08",
+      "reason": "routine"
+    },
+    {
+      "item_id": "AAPL-09",
+      "reason": "routine"
+    },
+    {
+      "item_id": "AAPL-10",
+      "reason": "duplicate"
+    },
+    {
+      "item_id": "AAPL-11",
+      "reason": "duplicate"
+    },
+    {
+      "item_id": "AAPL-12",
+      "reason": "routine"
+    }
+  ],
+  "suspicious_items": [],
+  "_check": {
+    "passed": true,
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": []
+      }
+    ],
+    "prompt_version": "v1 (2026-11-18)"
+  }
+}

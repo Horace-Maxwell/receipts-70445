@@ -1,0 +1,71 @@
+{
+  "ticker": "AMZN",
+  "call": "Neutral",
+  "confidence": 50,
+  "summary": "None of the documents this week describe earnings, guidance, executive changes, restatements or other material events for Amazon. The filings are routine and the news is minor product, philanthropy and third-party coverage. With little information, the call is Neutral with low confidence.",
+  "flags": [],
+  "evidence_for": [
+    {
+      "claim": "Amazon is expanding its Alexa shopping text-ordering feature, a modest positive product signal.",
+      "item_id": "AMZN-03",
+      "quote": "Amazon plans to expand access to millions more in the coming weeks."
+    }
+  ],
+  "evidence_against": [
+    {
+      "claim": "The macro backdrop shows a high long-term Treasury yield, which can weigh on growth stocks.",
+      "item_id": "AMZN-11",
+      "quote": "10-year Treasury yield (%): 5.15 on 2026-11-13 (was 5.19 on 2026-10-14)."
+    }
+  ],
+  "would_change_call": "A material event such as earnings or guidance news, an executive departure at Amazon, or a regulatory or litigation development would change the call.",
+  "ignored": [
+    {
+      "item_id": "AMZN-01",
+      "reason": "routine"
+    },
+    {
+      "item_id": "AMZN-02",
+      "reason": "routine"
+    },
+    {
+      "item_id": "AMZN-04",
+      "reason": "routine"
+    },
+    {
+      "item_id": "AMZN-05",
+      "reason": "routine"
+    },
+    {
+      "item_id": "AMZN-06",
+      "reason": "routine"
+    },
+    {
+      "item_id": "AMZN-07",
+      "reason": "routine"
+    },
+    {
+      "item_id": "AMZN-08",
+      "reason": "routine"
+    },
+    {
+      "item_id": "AMZN-09",
+      "reason": "routine"
+    },
+    {
+      "item_id": "AMZN-10",
+      "reason": "routine"
+    }
+  ],
+  "suspicious_items": [],
+  "_check": {
+    "passed": true,
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": []
+      }
+    ],
+    "prompt_version": "v1 (2026-11-18)"
+  }
+}

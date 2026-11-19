@@ -1,0 +1,109 @@
+{
+  "ticker": "MSFT",
+  "call": "Neutral",
+  "confidence": 60,
+  "summary": "A multi-day global outage hit Microsoft 365, Teams, Outlook and Copilot, with partners reporting large customer losses, while Microsoft reported no evidence of malicious activity and progress restoring services. The stock lagged the S&P 500 by 3.86 points last week, but the outage looks like an operational problem that is being fixed, so the 20-day outlook relative to the index is unclear. Insider filings, the Anthropic spreadsheet story and other items were routine or not material.",
+  "flags": [
+    {
+      "item_id": "MSFT-05",
+      "critical": false,
+      "direction": "negative",
+      "why": "A prolonged global outage across core Microsoft services with reported partner and customer losses could weigh on sentiment and raise reliability or liability concerns.",
+      "quote": "Microsoft\u2019s massive global outage impacting Microsoft 365, Teams, Outlook and Copilot continued Friday, with partners warning of millions of dollars in customer losses."
+    }
+  ],
+  "evidence_for": [
+    {
+      "claim": "Microsoft says it has made progress restoring services, which suggests the disruption is being contained.",
+      "item_id": "MSFT-10",
+      "quote": "Microsoft says it has made progress restoring services following an outage that disrupted several parts of its Microsoft 365 infrastructure."
+    },
+    {
+      "claim": "Microsoft found no sign that the outage was a cyberattack, which lowers the chance of a security-driven fallout.",
+      "item_id": "MSFT-05",
+      "quote": "No Evidence Of Malicious Activity"
+    }
+  ],
+  "evidence_against": [
+    {
+      "claim": "The outage was widespread and partners warned of customer losses, a possible drag on the stock.",
+      "item_id": "MSFT-05",
+      "quote": "Microsoft\u2019s massive global outage impacting Microsoft 365, Teams, Outlook and Copilot continued Friday, with partners warning of millions of dollars in customer losses."
+    },
+    {
+      "claim": "The outage lasted into a second day, so it was not a brief disruption.",
+      "item_id": "MSFT-12",
+      "quote": "The outage entered its second day Friday."
+    }
+  ],
+  "would_change_call": "A confirmed cause such as a security breach, quantified compensation or contract losses, or a guidance change tied to the outage would move the call toward Bearish, while a full recovery with no lasting customer impact would support Neutral at higher confidence.",
+  "ignored": [
+    {
+      "item_id": "MSFT-01",
+      "reason": "routine"
+    },
+    {
+      "item_id": "MSFT-02",
+      "reason": "routine"
+    },
+    {
+      "item_id": "MSFT-03",
+      "reason": "routine"
+    },
+    {
+      "item_id": "MSFT-04",
+      "reason": "routine"
+    },
+    {
+      "item_id": "MSFT-06",
+      "reason": "routine"
+    },
+    {
+      "item_id": "MSFT-07",
+      "reason": "duplicate"
+    },
+    {
+      "item_id": "MSFT-08",
+      "reason": "duplicate"
+    },
+    {
+      "item_id": "MSFT-09",
+      "reason": "duplicate"
+    },
+    {
+      "item_id": "MSFT-10",
+      "reason": "duplicate"
+    },
+    {
+      "item_id": "MSFT-11",
+      "reason": "routine"
+    },
+    {
+      "item_id": "MSFT-12",
+      "reason": "duplicate"
+    },
+    {
+      "item_id": "MSFT-13",
+      "reason": "routine"
+    },
+    {
+      "item_id": "MSFT-14",
+      "reason": "routine"
+    },
+    {
+      "item_id": "MSFT-15",
+      "reason": "routine"
+    }
+  ],
+  "suspicious_items": [],
+  "_check": {
+    "passed": true,
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": []
+      }
+    ],
+    "prompt_version": "v1 (2026-11-18)"
+  }
+}

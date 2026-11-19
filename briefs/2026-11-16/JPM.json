@@ -1,0 +1,83 @@
+{
+  "ticker": "JPM",
+  "call": "Neutral",
+  "confidence": 60,
+  "summary": "The week's documents are almost entirely routine structured-note pricing supplements and prospectus filings, with no earnings, guidance, executive changes, restatements, litigation or regulatory action specific to JPMorgan. The only company-specific news is JPMorgan-led banks testing demand for a bond sale, which is ordinary underwriting activity. With nothing material and mixed price signals, there is no basis for expecting a large move versus the S&P 500.",
+  "flags": [],
+  "evidence_for": [
+    {
+      "claim": "JPMorgan-led banks are marketing a bond deal, which is routine capital-markets activity rather than a negative event.",
+      "item_id": "JPM-399",
+      "quote": "JPMorgan - Led Banks Test Demand for Qualtrics Bonds at 85 Cents."
+    }
+  ],
+  "evidence_against": [
+    {
+      "claim": "A 10-year Treasury yield of 5.15 percent is a high-rate backdrop that could weigh on financial stocks.",
+      "item_id": "JPM-406",
+      "quote": "10-year Treasury yield (%): 5.15 on 2026-11-13 (was 5.19 on 2026-10-14)."
+    }
+  ],
+  "would_change_call": "A CEO or CFO departure, a restatement, a major regulatory or litigation action, or a guidance change from JPMorgan would move the call away from Neutral.",
+  "ignored": [
+    {
+      "item_id": "JPM-07",
+      "reason": "routine"
+    },
+    {
+      "item_id": "JPM-131",
+      "reason": "routine"
+    },
+    {
+      "item_id": "JPM-263",
+      "reason": "routine"
+    },
+    {
+      "item_id": "JPM-398",
+      "reason": "routine"
+    },
+    {
+      "item_id": "JPM-400",
+      "reason": "routine"
+    },
+    {
+      "item_id": "JPM-401",
+      "reason": "routine"
+    },
+    {
+      "item_id": "JPM-402",
+      "reason": "routine"
+    },
+    {
+      "item_id": "JPM-403",
+      "reason": "routine"
+    },
+    {
+      "item_id": "JPM-404",
+      "reason": "routine"
+    },
+    {
+      "item_id": "JPM-405",
+      "reason": "routine"
+    },
+    {
+      "item_id": "JPM-407",
+      "reason": "routine"
+    },
+    {
+      "item_id": "JPM-408",
+      "reason": "routine"
+    }
+  ],
+  "suspicious_items": [],
+  "_check": {
+    "passed": true,
+    "attempts": [
+      {
+        "attempt": 1,
+        "problems": []
+      }
+    ],
+    "prompt_version": "v1 (2026-11-18)"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ticker": "WMT",
+  "window_start": "2026-11-09",
+  "window_end": "2026-11-13",
+  "features": {
+    "as_of": "2026-11-13",
+    "last_close": 128.09,
+    "return_5d_pct": 2.05,
+    "excess_return_5d_vs_spy_pct": -0.55,
+    "return_21d_pct": 8.67,
+    "momentum_12_1_pct": 14.91,
+    "volatility_20d_annualized_pct": 25.8
+  }
+}
