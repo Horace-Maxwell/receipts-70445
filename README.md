@@ -51,6 +51,23 @@ planted traps (`traps.json`, never shown to the agent). Results are in `results/
 
 ## Data sources
 
-SEC EDGAR, GDELT, Yahoo Finance (headlines and daily prices), FRED, Federal Register. All public, no accounts.
+All public, no accounts, no API keys.
+
+| Source | Used for | Endpoint |
+|---|---|---|
+| SEC EDGAR | 8-K text and press releases, Form 4, 10-Q/10-K | https://www.sec.gov/search-filings/edgar-application-programming-interfaces |
+| GDELT DOC 2.0 | News for past weeks | https://api.gdeltproject.org/api/v2/doc/doc ([docs](https://blog.gdeltproject.org/gdelt-doc-2-0-api-debuts/)) |
+| Yahoo Finance RSS | News for the current week | https://feeds.finance.yahoo.com/rss/2.0/headline (unofficial, undocumented) |
+| Yahoo Finance chart | Daily adjusted closes for the stock and SPY | https://query1.finance.yahoo.com/v8/finance/chart/ (unofficial, undocumented) |
+| FRED | Macro snapshot (frozen, see RUNBOOK) | https://fred.stlouisfed.org/ |
+| Federal Register | Rules matching the company's sector (frozen) | https://www.federalregister.gov/developers/documentation/api/v1 |
+
+The proposal named Finnhub or Alpha Vantage for news and Alpaca for prices. We switched to GDELT and Yahoo
+because they need no key and cover past weeks, which the test cases need.
+
+## For the team
+
+`RUNBOOK.md` explains how to run the weekly briefs and the tests, how to add a case, and how to change the
+prompt or the check. It also holds our plan for making sure either of us can run and change the pipeline.
 
 Research and education only. Not investment advice.
