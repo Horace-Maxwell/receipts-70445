@@ -1,0 +1,8 @@
+{
+  "JPM": "Built before the change that merges repeated routine filings: this packet has 408 items, mostly note supplements.",
+  "PFE": "The one flagged item is an industry-wide Medicare rule from the Federal Register (a frozen source), not Pfizer-specific news. No news was collected this week.",
+  "JNJ": "The one flagged item is an industry-wide Medicare rule from the Federal Register (a frozen source), not J&J-specific news.",
+  "WMT": "No company filings or news this week: only the macro snapshot and one Federal Register rule. The call here rests on nothing company-specific.",
+  "BA": "No news was collected this week (GDELT rate limit); the brief saw filings only.",
+  "XOM": "No news was collected this week (GDELT rate limit); the brief saw filings only."
+}

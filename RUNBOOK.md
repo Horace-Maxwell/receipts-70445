@@ -26,10 +26,10 @@ git checkout -- results/midpoint     # the rerun only changes the timestamp; thr
 
 ## 1. The pipeline in one screen
 
-| Step | File | What it does | Who wrote it / second owner |
+| Step | File | What it does | Owner / second owner |
 |---|---|---|---|
 | Collect | `receipts/collect/edgar.py` | 8-Ks, press releases, Form 4, 10-Q/10-K text from SEC EDGAR; merges repeated routine filings | Horace / Kevin |
-| Collect | `receipts/collect/news.py` | GDELT for past weeks (1 request per ~5 s), Yahoo Finance RSS for the current week | Horace / Kevin |
+| Collect | `receipts/collect/news.py` | GDELT news (1 request per ~5 s); a Yahoo RSS function exists but is not called | Horace / Kevin |
 | Collect | `receipts/collect/prices.py` | Yahoo Finance daily closes; 5-day and 21-day return, excess vs SPY, 12-1 momentum, 20-day vol | Horace / Kevin |
 | Collect | `receipts/collect/macro.py` | FRED snapshot, Federal Register rules (frozen, see section 5) | Horace |
 | Packet | `receipts/packet.py` | Numbers every item (`NVDA-07`), saves `items.jsonl` + `packet.json` | Horace / Kevin |
@@ -38,7 +38,8 @@ git checkout -- results/midpoint     # the rerun only changes the timestamp; thr
 | Tests | `eval/build_cases.py`, `eval/run.py`, `eval/CRITERIA.md` | Builds the locked cases with planted traps; runs and scores them | Kevin / Horace |
 | Page | `app.py` | Streamlit page: watchlist briefs, test cases, run a brief | Horace / Kevin |
 
-"Second owner" is the person who must be able to change that file alone by the final (see section 6).
+"Second owner" is the person who must be able to change that file alone by the final (see section 6). Most of the code
+was drafted with Claude Code and reviewed by Horace; the owner is the person responsible for it, not its typist.
 
 ## 2. Weekly briefs (every Monday)
 
