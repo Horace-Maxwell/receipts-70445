@@ -16,7 +16,9 @@ def collect(ticker, start, end, live_news=False):
     items = []
     items += edgar.filings(ticker, start, end)
     items += news.yahoo_latest(ticker) if live_news else news.gdelt(ticker, start, end)
-    items.append(macro.fred_snapshot(end))
+    fred = macro.fred_snapshot(end)
+    if fred:
+        items.append(fred)
     items += macro.federal_register(ticker, start, end)
     return items
 

@@ -10,15 +10,20 @@ SERIES = {"DFF": "Effective federal funds rate (%)", "DGS10": "10-year Treasury 
 
 
 def _series(sid):
-    text = get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": sid})
+    text = get("https://fred.stlouisfed.org/graph/fredgraph.csv", params={"id": sid}, timeout=10)
     rows = [r for r in csv.reader(io.StringIO(text))][1:]
     return [(d, float(v)) for d, v in rows if v not in ("", ".")]
 
 
 def fred_snapshot(end):
+    """One macro item, or None if FRED does not answer (it is a frozen, minor source; never fail a brief on it)."""
     lines = []
     for sid, label in SERIES.items():
-        obs = [o for o in _series(sid) if o[0] <= end]
+        try:
+            obs = [o for o in _series(sid) if o[0] <= end]
+        except Exception:
+            break  # FRED is slow or down: stop asking, keep what we have
+
         if len(obs) < 2:
             continue
         (d1, v1) = obs[-1]
@@ -29,6 +34,8 @@ def fred_snapshot(end):
             lines.append(f"{label}: {v1:g} on {d1} (was {v0:g} on {d0}).")
         else:
             lines.append(f"{label}: {v1:g} on {d1}.")
+    if not lines:
+        return None
     return {"source": "FRED (St. Louis Fed)", "kind": "macro", "date": end,
             "url": "https://fred.stlouisfed.org/", "title": "Macro snapshot", "text": " ".join(lines)}
 

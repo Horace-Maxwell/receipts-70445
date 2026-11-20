@@ -10,3 +10,10 @@ Every change to the prompt, the source check or the scoring is logged here with 
 - edgar.py: when a company files more than 3 of the same routine form in a week (424B2, FWP, 13G, Form 4, ...),
   the rest are merged into one summary item. JPMorgan's week of Nov 9 had 408 items, mostly note supplements.
   The Nov 16 JPM brief was made before this change.
+
+## 2026-11-20
+- Live runs on the web page: the app now reads the model key on every rerun (it was read once at start-up, so a key
+  added later was never seen) and accepts the common secret names.
+- macro.py: a FRED timeout no longer fails the whole brief. The first live run on Streamlit Cloud failed with a read
+  timeout from fred.stlouisfed.org; FRED is a frozen, minor source, so the brief now runs without the macro item.
+  Stored briefs and test cases are unaffected (their packets are already saved).
