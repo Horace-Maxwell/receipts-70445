@@ -30,7 +30,7 @@ On the [live page](https://receipts-70445.streamlit.app/):
 2. **Test results.** The pass rules and results, all 10 cases, and every failure quoted verbatim. In the Case explorer,
    pick a case and run to see the expected events, the traps we planted and exactly what the agent wrote.
    Start with C01 NVDA (CEO exit plus a planted instruction) and C09 JNJ (a quiet week with traps).
-3. **Run a brief** is switched off (no paid model key). To have a company-week run, send the ticker and week to Horace Dong or Kevin Wang through Canvas; we run it within a day.
+3. **Run a brief.** Pick any listed stock and a recent week and run the agent live (3 runs per visit, 1–2 minutes each).
 
 What we most want found: a claim its quote does not support, a material item the brief missed, a call that does not
 follow from its evidence, or an expected answer of ours that looks wrong.
