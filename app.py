@@ -2,27 +2,53 @@
 import html
 import json
 import os
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 import streamlit as st
 
 ROOT = Path(__file__).resolve().parent
-try:  # Streamlit Cloud secrets -> environment, before receipts.config reads it
-    for k in ("RECEIPTS_ANTHROPIC_API_KEY", "RECEIPTS_LLM_BACKEND", "SEC_USER_AGENT", "RECEIPTS_MODEL"):
-        if k in st.secrets:
-            os.environ[k] = str(st.secrets[k])
-except Exception:
-    pass
+# Streamlit Cloud secrets -> environment. Runs on every rerun, because Streamlit Cloud updates secrets
+# without restarting the app, and accepts the common names people use for the key.
+SECRET_NAMES = {
+    "RECEIPTS_ANTHROPIC_API_KEY": ("RECEIPTS_ANTHROPIC_API_KEY", "ANTHROPIC_API_KEY", "anthropic_api_key", "api_key"),
+    "RECEIPTS_LLM_BACKEND": ("RECEIPTS_LLM_BACKEND",),
+    "SEC_USER_AGENT": ("SEC_USER_AGENT",),
+    "RECEIPTS_MODEL": ("RECEIPTS_MODEL",),
+}
+
+
+def _find_secret(names):
+    try:
+        sec = st.secrets
+        for n in names:  # top level
+            if n in sec and not hasattr(sec[n], "keys"):
+                return str(sec[n])
+        for section in sec.keys():  # one level down, e.g. [anthropic] api_key = "..."
+            sub = sec[section]
+            if hasattr(sub, "keys"):
+                for n in names:
+                    if n in sub:
+                        return str(sub[n])
+    except Exception:
+        pass
+    return None
+
+
+for env_name, names in SECRET_NAMES.items():
+    val = _find_secret(names)
+    if val:
+        os.environ[env_name] = val.strip()
 
 from receipts import agent  # noqa: E402
-from receipts.config import ANTHROPIC_KEY, CASES_DIR, COMPANIES, WATCHLIST  # noqa: E402
+from receipts.config import CASES_DIR, COMPANIES, WATCHLIST  # noqa: E402
 from receipts.packet import collect, load, number, week_window  # noqa: E402
 from receipts.collect import prices  # noqa: E402
 
 REPO = "https://github.com/Horace-Maxwell/receipts-70445"
 RESULTS = ROOT / "results" / "midpoint"
 MAX_LIVE_RUNS = 3
+ANTHROPIC_KEY = os.environ.get("RECEIPTS_ANTHROPIC_API_KEY", "")  # read on every rerun
 
 st.set_page_config(page_title="Receipts: sourced weekly stock briefs", page_icon=":material/receipt_long:",
                    layout="wide")
@@ -218,6 +244,10 @@ source. The analyst turns the view into add, hold or trim.</p>
 </div></div>
 """, unsafe_allow_html=True)
 
+LIVE_NOTE = ("<b>4. Run it yourself.</b> The Run a brief tab builds a fresh brief for any listed stock and week "
+             f"({MAX_LIVE_RUNS} runs per visit).<br>") if ANTHROPIC_KEY else (
+    "<b>Live runs are off</b> (no paid model key). To have a company-week run, send the ticker and week to Horace Dong "
+    "or Kevin Wang through Canvas; we run it within a day.<br>")
 with st.expander("**Reviewing this for Peer Feedback? Start here (2 minutes)**", icon=":material/rocket_launch:"):
     st.markdown(f"""
 <div class="rc-step">
@@ -227,8 +257,7 @@ with st.expander("**Reviewing this for Peer Feedback? Start here (2 minutes)**",
 planted instruction and a rumor).<br>
 <b>3. Try to break it.</b> We most want: a claim its quote does not support, a material item the brief missed, a call that does
 not follow from its evidence, or an expected answer of ours that looks wrong.<br>
-<b>Live runs are off</b> (no paid model key). To have a company-week run, send the ticker and week to Horace Dong or Kevin Wang
-through Canvas; we run it within a day.<br>
+{LIVE_NOTE}
 <b>Code:</b> <a href="{REPO}" target="_blank">GitHub repo</a> · prompt in <code>receipts/prompt.py</code> · source check in
 <code>receipts/verify.py</code> · <a href="{REPO}/blob/main/RUNBOOK.md" target="_blank">RUNBOOK</a>
 </div>""", unsafe_allow_html=True)
@@ -407,25 +436,43 @@ with tab_run:
             st.markdown(f"**Run it yourself:** clone the [repo]({REPO}), add your own key to `.env`, and follow the "
                         f"[RUNBOOK]({REPO}/blob/main/RUNBOOK.md).")
     else:
-        st.write("Build a fresh brief for any listed stock and week. This calls the model and the public data sources "
-                 "live, so it takes about a minute.")
-        t = st.selectbox("Stock", WATCHLIST + [k for k in COMPANIES if k not in WATCHLIST],
+        st.markdown("#### Build a fresh brief, live")
+        st.markdown('<div class="rc-muted">The same code as the other tabs: it collects the week\'s SEC filings and '
+                    'GDELT news, computes the price inputs, asks the model for a brief, and runs the source check '
+                    '(with one retry). Takes 1–2 minutes. Live briefs are not saved.</div>', unsafe_allow_html=True)
+        today = date.today()
+        last_monday = today - timedelta(days=today.weekday())
+        mondays = [last_monday - timedelta(weeks=k) for k in range(0, 16)]
+        c1, c2 = st.columns(2)
+        t = c1.selectbox("Stock", WATCHLIST + [k for k in COMPANIES if k not in WATCHLIST],
                          format_func=lambda k: f"{k} · {company(k)}")
-        monday = st.date_input("Brief date (a Monday; covers the week before)")
+        monday = c2.selectbox("Week", mondays, format_func=lambda m: f"Brief of Mon {m:%b} {m.day} · covers "
+                              f"{week_label(*week_window(m.isoformat()))}")
         n = st.session_state.get("live_runs", 0)
-        if st.button("Run", type="primary", disabled=n >= MAX_LIVE_RUNS):
-            if monday.weekday() != 0:
-                st.error("Pick a Monday.")
-            else:
-                st.session_state["live_runs"] = n + 1
-                start, end = week_window(monday.isoformat())
-                with st.spinner("Collecting documents..."):
+        left = MAX_LIVE_RUNS - n
+        if st.button("Run the agent", type="primary", icon=":material/play_arrow:", disabled=left <= 0):
+            st.session_state["live_runs"] = n + 1
+            start, end = week_window(monday.isoformat())
+            try:
+                with st.spinner("Collecting filings and news (GDELT allows one request every few seconds)..."):
                     items = number(collect(t, start, end), t)
-                    meta = {"ticker": t, "window_start": start, "window_end": end, "features": prices.features(t, end)}
-                with st.spinner(f"Reading {len(items)} documents..."):
+                    try:
+                        feats = prices.features(t, end)
+                    except Exception:
+                        feats = {}
+                    meta = {"ticker": t, "window_start": start, "window_end": end, "features": feats}
+                with st.spinner(f"The model is reading {len(items)} documents..."):
                     brief = agent.run(meta, items, f"live_{t}_{monday}", backend="anthropic")
+            except Exception as e:
+                st.error(f"The run failed: {type(e).__name__}: {str(e)[:300]}. Try again in a minute, or pick another "
+                         "week.", icon=":material/error:")
+            else:
+                st.markdown(f"### {esc(t)} · {esc(company(t))}")
+                st.caption(f"Documents from {week_label(start, end)} · {len(items)} items read · live run")
                 show_brief(brief, items, meta)
-        st.caption(f"{MAX_LIVE_RUNS} live runs per visitor.")
+        st.caption(f"{max(MAX_LIVE_RUNS - st.session_state.get('live_runs', 0), 0)} of "
+                   f"{MAX_LIVE_RUNS} live runs left in this visit. Each run calls a paid model, so please pick weeks "
+                   "you want to test.")
 
 # ---------------------------------------------------------------- about
 with tab_about:

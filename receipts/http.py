@@ -1,6 +1,7 @@
 """HTTP helper with a polite rate limit and a disk cache."""
 import hashlib
 import json
+import os
 import time
 
 import requests
@@ -23,7 +24,7 @@ def get(url, params=None, sec=False, min_gap=0.0, timeout=25, cache=True, as_jso
         wait = _last.get(host, 0) + gap - time.time()
         if wait > 0:
             time.sleep(wait)
-        headers = {"User-Agent": SEC_USER_AGENT if sec else BROWSER_UA}
+        headers = {"User-Agent": (os.environ.get("SEC_USER_AGENT") or SEC_USER_AGENT) if sec else BROWSER_UA}
         r = requests.get(url, params=params, headers=headers, timeout=timeout)
         _last[host] = time.time()
         r.raise_for_status()

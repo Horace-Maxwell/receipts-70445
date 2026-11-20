@@ -6,6 +6,7 @@ relay:     writes the prompt to relay/requests/<id>.md and reads relay/responses
            in a fresh context with the same prompt. Same code path, different transport.
 """
 import json
+import os
 import re
 
 from .config import ANTHROPIC_KEY, ANTHROPIC_MODEL, LLM_BACKEND, RELAY_DIR
@@ -26,10 +27,11 @@ def complete(request_id, system, user, backend=None):
 
 def _anthropic(system, user):
     import anthropic
-    if not ANTHROPIC_KEY:
+    key = os.environ.get("RECEIPTS_ANTHROPIC_API_KEY") or ANTHROPIC_KEY  # read at call time, not import time
+    if not key:
         raise RuntimeError("Set RECEIPTS_ANTHROPIC_API_KEY in .env")
-    client = anthropic.Anthropic(api_key=ANTHROPIC_KEY, base_url="https://api.anthropic.com")
-    msg = client.messages.create(model=ANTHROPIC_MODEL, max_tokens=4000, system=system,
+    client = anthropic.Anthropic(api_key=key, base_url="https://api.anthropic.com")
+    msg = client.messages.create(model=os.environ.get("RECEIPTS_MODEL") or ANTHROPIC_MODEL, max_tokens=8000, system=system,
                                  messages=[{"role": "user", "content": user}])
     return "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
 
