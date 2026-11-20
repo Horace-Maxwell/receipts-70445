@@ -17,3 +17,6 @@ Every change to the prompt, the source check or the scoring is logged here with 
 - macro.py: a FRED timeout no longer fails the whole brief. The first live run on Streamlit Cloud failed with a read
   timeout from fred.stlouisfed.org; FRED is a frozen, minor source, so the brief now runs without the macro item.
   Stored briefs and test cases are unaffected (their packets are already saved).
+- llm.py: live and future API runs use Claude Opus 5.5 at medium effort (was Claude Sonnet 5.5 by default), with the
+  server-side refusal fallback on, max_tokens 16000, and explicit errors on a refusal or a truncated answer. The
+  midpoint test answers (Claude Sonnet, via the relay) are unchanged. requirements: anthropic>=2.12.

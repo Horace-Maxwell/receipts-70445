@@ -9,7 +9,7 @@ import json
 import os
 import re
 
-from .config import ANTHROPIC_KEY, ANTHROPIC_MODEL, LLM_BACKEND, RELAY_DIR
+from .config import ANTHROPIC_EFFORT, ANTHROPIC_KEY, ANTHROPIC_MODEL, LLM_BACKEND, RELAY_DIR
 
 
 class Pending(Exception):
@@ -26,13 +26,30 @@ def complete(request_id, system, user, backend=None):
 
 
 def _anthropic(system, user):
+    """One call to Claude. Defaults: Claude Opus 5.5 at medium effort (adaptive thinking is always on for it).
+
+    The server-side fallback re-runs the request on another model if Opus declines it (refusal), so a brief is not
+    lost to a false-positive safety decline.
+    """
     import anthropic
     key = os.environ.get("RECEIPTS_ANTHROPIC_API_KEY") or ANTHROPIC_KEY  # read at call time, not import time
     if not key:
         raise RuntimeError("Set RECEIPTS_ANTHROPIC_API_KEY in .env")
     client = anthropic.Anthropic(api_key=key, base_url="https://api.anthropic.com")
-    msg = client.messages.create(model=os.environ.get("RECEIPTS_MODEL") or ANTHROPIC_MODEL, max_tokens=8000, system=system,
-                                 messages=[{"role": "user", "content": user}])
+    msg = client.beta.messages.create(
+        model=os.environ.get("RECEIPTS_MODEL") or ANTHROPIC_MODEL,
+        max_tokens=16000,
+        output_config={"effort": os.environ.get("RECEIPTS_EFFORT") or ANTHROPIC_EFFORT},
+        betas=["server-side-fallback-2026-07-01"],
+        fallbacks="default",
+        system=system,
+        messages=[{"role": "user", "content": user}],
+    )
+    if msg.stop_reason == "refusal":
+        cat = getattr(getattr(msg, "stop_details", None), "category", None)
+        raise RuntimeError(f"The model declined this request (category: {cat}).")
+    if msg.stop_reason == "max_tokens":
+        raise RuntimeError("The model ran out of output tokens before finishing the brief.")
     return "".join(b.text for b in msg.content if getattr(b, "type", "") == "text")
 
 

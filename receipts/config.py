@@ -22,7 +22,8 @@ _load_dotenv()
 SEC_USER_AGENT = os.environ.get("SEC_USER_AGENT", "Receipts student project contact@example.com")
 LLM_BACKEND = os.environ.get("RECEIPTS_LLM_BACKEND", "relay")  # "anthropic" or "relay"
 ANTHROPIC_KEY = os.environ.get("RECEIPTS_ANTHROPIC_API_KEY", "")
-ANTHROPIC_MODEL = os.environ.get("RECEIPTS_MODEL", "claude-sonnet-5-5")
+ANTHROPIC_MODEL = os.environ.get("RECEIPTS_MODEL", "claude-opus-5-5")
+ANTHROPIC_EFFORT = os.environ.get("RECEIPTS_EFFORT", "medium")  # low | medium | high | xhigh | max
 FINNHUB_KEY = os.environ.get("FINNHUB_API_KEY", "")
 
 CACHE_DIR = ROOT / "data" / "cache"

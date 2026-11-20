@@ -56,38 +56,61 @@ st.set_page_config(page_title="Receipts: sourced weekly stock briefs", page_icon
 # ---------------------------------------------------------------- style
 st.markdown("""
 <style>
-.block-container {padding-top: 2.2rem; padding-bottom: 3rem; max-width: 1240px;}
+.block-container {padding: 2.6rem 2rem 3.5rem 2rem; max-width: 1240px;}
+@media (max-width: 640px) {.block-container {padding: 1.6rem 1rem 3rem 1rem;}}
 h1, h2, h3 {letter-spacing: -0.01em;}
-.rc-hero h1 {font-size: 2.3rem; margin: 0 0 .15rem 0; padding: 0;}
-.rc-hero p {color: #475467; font-size: 1.02rem; margin: 0 0 .6rem 0;}
-.rc-chips {display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .4rem;}
+.rc-hero h1 {font-size: 2.3rem; margin: 0 0 .5rem 0; padding: 0; line-height: 1.15;}
+.rc-hero p {color: #475467; font-size: 1.02rem; line-height: 1.6; margin: 0 0 1rem 0; max-width: 62rem;}
+.rc-chips {display: flex; flex-wrap: wrap; gap: .5rem .6rem; margin-bottom: 1.25rem;}
 .rc-chip {background: #F3F5F8; border: 1px solid #E4E7EC; color: #344054; border-radius: 999px;
           padding: .18rem .7rem; font-size: .82rem;}
-.rc-badge {display: inline-block; border-radius: 6px; padding: .08rem .5rem; font-size: .78rem; font-weight: 600;
+.rc-badge {display: inline-block; border-radius: 6px; padding: .12rem .55rem; font-size: .78rem; font-weight: 600;
+           line-height: 1.5;
            letter-spacing: .02em; margin-right: .3rem; vertical-align: middle;}
 .rc-bull {background: #E7F5EC; color: #1A7F37;} .rc-bear {background: #FDECEA; color: #B42318;}
 .rc-neut {background: #EEF1F5; color: #475467;} .rc-crit {background: #B42318; color: #fff;}
 .rc-pos {background: #E7F5EC; color: #1A7F37;} .rc-neg {background: #FDECEA; color: #B42318;}
 .rc-mix {background: #FEF4E6; color: #B54708;} .rc-ok {background: #E7F5EC; color: #1A7F37;}
 .rc-bad {background: #FDECEA; color: #B42318;} .rc-info {background: #EAF0F8; color: #1F3A5F;}
-.rc-card-t {font-size: 1.25rem; font-weight: 700; color: #1B2430; line-height: 1.1;}
-.rc-card-s {font-size: .8rem; color: #667085; margin-bottom: .45rem; white-space: nowrap; overflow: hidden;
+.rc-card-t {font-size: 1.25rem; font-weight: 700; color: #1B2430; line-height: 1.2; margin-top: .1rem;}
+.rc-card-s {font-size: .8rem; color: #667085; margin: .15rem 0 .7rem 0; white-space: nowrap; overflow: hidden;
             text-overflow: ellipsis;}
-.rc-card-m {font-size: .82rem; color: #475467; margin-top: .4rem;}
-.rc-quote {border-left: 3px solid #1F3A5F; background: #F8F9FB; padding: .5rem .8rem; margin: .45rem 0;
+.rc-card-row {display: flex; align-items: center; gap: .5rem;}
+.rc-card-m {font-size: .82rem; color: #475467; margin: .6rem 0 .9rem 0; min-height: 1.3em;}
+.rc-quote {border-left: 3px solid #1F3A5F; background: #F8F9FB; padding: .6rem .9rem; margin: .7rem 0 .6rem 0;
+           line-height: 1.55;
            color: #1B2430; font-size: .93rem; border-radius: 0 6px 6px 0;}
-.rc-src {font-size: .8rem; color: #667085;} .rc-src a {color: #1F3A5F; text-decoration: none; font-weight: 600;}
+.rc-src {font-size: .8rem; color: #667085; margin: 0; padding: .1rem 0 .45rem 0; line-height: 1.6;} .rc-src a {color: #1F3A5F; text-decoration: none; font-weight: 600;}
 .rc-src code {font-size: .76rem; background: #EEF1F5; padding: .05rem .3rem; border-radius: 4px; color: #344054;}
 .rc-summary {background: #F3F5F8; border-radius: 10px; padding: .9rem 1.1rem; font-size: 1rem; color: #1B2430;
-             margin: .4rem 0 1rem 0; line-height: 1.55;}
-.rc-kicker {font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: #667085; font-weight: 600;}
-.rc-big {font-size: 1.6rem; font-weight: 700; line-height: 1.2;}
-.rc-muted {color: #667085; font-size: .85rem;}
+             margin: 1.4rem 0 1.25rem 0; line-height: 1.6;}
+.rc-kicker {font-size: .75rem; text-transform: uppercase; letter-spacing: .08em; color: #667085; font-weight: 600;
+            margin-bottom: .45rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.rc-flag-head {display: flex; flex-wrap: wrap; align-items: baseline; gap: .45rem; line-height: 1.5;}
+.rc-tile {display: flex; flex-direction: column; min-height: 10.5rem;}
+.rc-tile .rc-badge {align-self: flex-start; margin-top: auto;}
+.rc-step-card {min-height: 9.5rem;}
+.rc-stat {display: inline-flex; align-items: center; gap: .35rem; margin-right: 1rem; white-space: nowrap;}
+.rc-section {margin: 1.75rem 0 .75rem 0;}
+.rc-big {font-size: 1.6rem; font-weight: 700; line-height: 1.2; margin-bottom: .35rem;}
+.rc-muted {color: #667085; font-size: .85rem; line-height: 1.55;}
 .rc-verdict {border: 1px solid #ABEFC6; background: #F6FEF9; border-radius: 10px; padding: .9rem 1.1rem;
-             margin-bottom: 1rem;}
+             margin-bottom: 1.25rem;}
 .rc-verdict b {color: #1A7F37;}
 .rc-foot {color: #98A2B3; font-size: .8rem; margin-top: 2.5rem; border-top: 1px solid #EAECF0; padding-top: .8rem;}
-.rc-step {font-size: .92rem; color: #344054; line-height: 1.6;}
+.rc-step {font-size: .92rem; color: #344054; line-height: 1.75;}
+/* stock cards: one wrapping row, 5 per line on desktop, 2 per line below 900px */
+.st-key-cards [data-testid="stHorizontalBlock"] {flex-direction: row !important; flex-wrap: wrap !important;
+                                                 row-gap: 1rem; column-gap: 1rem;}
+.st-key-cards [data-testid="stColumn"] {flex: 0 0 calc(20% - .8rem) !important; min-width: calc(20% - .8rem) !important;
+                                        width: calc(20% - .8rem) !important;}
+@media (max-width: 900px) {
+  .st-key-cards [data-testid="stColumn"] {flex: 0 0 calc(50% - .5rem) !important; min-width: calc(50% - .5rem) !important;
+                                          width: calc(50% - .5rem) !important;}
+  .st-key-cards .rc-card-m {min-height: 2.9em;}
+}
+/* breathing room between stacked bordered cards */
+[data-testid="stVerticalBlockBorderWrapper"] {margin-bottom: .15rem;}
 </style>
 """, unsafe_allow_html=True)
 
@@ -144,10 +167,11 @@ def show_brief(brief, items, meta=None):
     attempts = len(chk.get("attempts", []))
     feats = (meta or {}).get("features") or {}
 
-    c1, c2, c3, c4 = st.columns([1.1, 1, 1.1, 1.6])
+    c1, c2, c3, c4 = st.columns([1, 1, 1.2, 1.5], gap="large")
     with c1:
-        st.markdown(f'<div class="rc-kicker">Call vs. S&P 500 · next 20 trading days</div>'
-                    f'<div style="margin-top:.35rem">{call_badge(brief.get("call"), big=True)}</div>',
+        st.markdown(f'<div class="rc-kicker">Call vs. S&P 500</div>'
+                    f'<div style="margin:.1rem 0 .45rem 0">{call_badge(brief.get("call"), big=True)}</div>'
+                    f'<div class="rc-muted">over the next 20 trading days</div>',
                     unsafe_allow_html=True)
     with c2:
         conf = brief.get("confidence")
@@ -160,19 +184,20 @@ def show_brief(brief, items, meta=None):
         ok = chk.get("passed")
         note = "first try" if attempts <= 1 else "after 1 retry"
         st.markdown(f'<div class="rc-kicker">Source check</div>'
-                    f'<div style="margin-top:.35rem"><span class="rc-badge {"rc-ok" if ok else "rc-bad"}" '
-                    f'style="font-size:.95rem">{"✓ Passed" if ok else "✗ Failed"}</span>'
+                    f'<div class="rc-card-row" style="margin:.1rem 0 .45rem 0"><span class="rc-badge {"rc-ok" if ok else "rc-bad"}" '
+                    f'style="font-size:.95rem;margin:0">{"✓ Passed" if ok else "✗ Failed"}</span>'
                     f'<span class="rc-muted">{note}</span></div>'
-                    f'<div class="rc-muted" style="margin-top:.3rem">Quotes verbatim in the cited document; numbers found in a source</div>',
+                    f'<div class="rc-muted">Quotes verbatim in the cited document; numbers found in a source</div>',
                     unsafe_allow_html=True)
     with c4:
         if feats:
-            st.markdown(f'<div class="rc-kicker">Price context (computed by code, as of {esc(feats.get("as_of", ""))})</div>'
-                        f'<div class="rc-muted" style="line-height:1.7;margin-top:.25rem">'
+            st.markdown(f'<div class="rc-kicker">Price context</div>'
+                        f'<div class="rc-muted" style="line-height:1.8">'
                         f'5-day vs SPY <b>{pct(feats.get("excess_return_5d_vs_spy_pct"))}</b> · '
                         f'21-day <b>{pct(feats.get("return_21d_pct"))}</b><br>'
                         f'12-1 momentum <b>{pct(feats.get("momentum_12_1_pct"))}</b> · '
-                        f'20-day vol <b>{feats.get("volatility_20d_annualized_pct", "n/a")}%</b></div>',
+                        f'20-day vol <b>{feats.get("volatility_20d_annualized_pct", "n/a")}%</b><br>'
+                        f'computed by code, as of {esc(feats.get("as_of", ""))}</div>',
                         unsafe_allow_html=True)
 
     st.markdown(f'<div class="rc-summary">{esc(brief.get("summary", ""))}</div>', unsafe_allow_html=True)
@@ -185,21 +210,23 @@ def show_brief(brief, items, meta=None):
             f"- `{s.get('item_id')}`: {s.get('why')}" for s in brief["suspicious_items"]), icon=":material/shield:")
 
     flags = brief.get("flags", [])
-    st.markdown(f"#### What matters this week · {len(flags)} item{'s' if len(flags) != 1 else ''}")
+    st.markdown(f'<h4 class="rc-section">What matters this week · {len(flags)} item{"s" if len(flags) != 1 else ""}</h4>',
+                unsafe_allow_html=True)
     if not flags:
         st.markdown('<div class="rc-muted">Nothing material found in this week\'s documents.</div>',
                     unsafe_allow_html=True)
     for f in flags:
         with st.container(border=True):
             crit = '<span class="rc-badge rc-crit">CRITICAL</span>' if f.get("critical") else ""
-            st.markdown(f'{crit}{dir_badge(f.get("direction"))} <span style="font-weight:600">{esc(f.get("why"))}</span>'
+            st.markdown(f'<div class="rc-flag-head">{crit}{dir_badge(f.get("direction"))}'
+                        f'<span style="font-weight:600">{esc(f.get("why"))}</span></div>'
                         f'{quote(f.get("quote"))}{src_line(by_id.get(f.get("item_id")), f.get("item_id"))}',
                         unsafe_allow_html=True)
 
     a, b = st.columns(2)
     for col, key, title in ((a, "evidence_for", "Evidence for the call"), (b, "evidence_against", "Evidence against")):
         with col:
-            st.markdown(f"#### {title}")
+            st.markdown(f'<h4 class="rc-section">{title}</h4>', unsafe_allow_html=True)
             ev = brief.get(key, [])
             if not ev:
                 st.markdown('<div class="rc-muted">None listed.</div>', unsafe_allow_html=True)
@@ -286,32 +313,33 @@ with tab_watch:
         order = sorted(briefs, key=lambda t: (-sum(bool(x.get("critical")) for x in briefs[t].get("flags", [])),
                                                briefs[t].get("call") == "Neutral", -len(briefs[t].get("flags", [])), t))
         calls = [b.get("call") for b in briefs.values()]
-        st.markdown(f'<div class="rc-muted" style="margin:.2rem 0 .6rem 0">{len(briefs)} stocks · '
-                    f'{call_badge("Bullish")}×{calls.count("Bullish")} {call_badge("Neutral")}×{calls.count("Neutral")} '
-                    f'{call_badge("Bearish")}×{calls.count("Bearish")} · sorted by critical items first</div>',
-                    unsafe_allow_html=True)
+        stats = "".join(f'<span class="rc-stat">{call_badge(c)}<span>× {calls.count(c)}</span></span>'
+                        for c in ("Bullish", "Neutral", "Bearish"))
+        st.markdown(f'<div class="rc-muted" style="margin:.5rem 0 1rem 0;line-height:2">'
+                    f'<span class="rc-stat">{len(briefs)} stocks</span>{stats}'
+                    f'<span class="rc-stat">sorted by critical items first</span></div>', unsafe_allow_html=True)
         if st.session_state.get("pick_week") != wk.name or st.session_state.get("pick") not in briefs:
             st.session_state["pick"], st.session_state["pick_week"] = order[0], wk.name
-        per_row = 5
-        for r in range(0, len(order), per_row):
-            cols = st.columns(per_row)
-            for col, t in zip(cols, order[r:r + per_row]):
-                b = briefs[t]
-                nf = len(b.get("flags", []))
-                nc = sum(bool(x.get("critical")) for x in b.get("flags", []))
-                with col.container(border=True):
-                    crit = ' · <span style="color:#B42318;font-weight:600">' + f"{nc} critical</span>" if nc else ""
-                    if t in notes:
-                        crit += ' · <span style="color:#B54708;font-weight:600">see note</span>'
-                    st.markdown(f'<div class="rc-card-t">{esc(t)}</div><div class="rc-card-s">{esc(company(t))}</div>'
-                                f'{call_badge(b.get("call"))}<span class="rc-muted">{esc(b.get("confidence"))}%</span>'
-                                f'<div class="rc-card-m">{nf} material item{"s" if nf != 1 else ""}{crit}</div>',
-                                unsafe_allow_html=True)
-                    sel = st.session_state["pick"] == t
-                    if st.button("Viewing" if sel else "Open brief", key=f"open_{wk.name}_{t}", use_container_width=True,
-                                 type="primary" if sel else "secondary"):
-                        st.session_state["pick"] = t
-                        st.rerun()
+        cards = st.container(key="cards")
+        cols = cards.columns(len(order), gap="medium")  # CSS wraps these into rows (see .st-key-cards)
+        for col, t in zip(cols, order):
+            b = briefs[t]
+            nf = len(b.get("flags", []))
+            nc = sum(bool(x.get("critical")) for x in b.get("flags", []))
+            with col.container(border=True):
+                crit = ' · <span style="color:#B42318;font-weight:600">' + f"{nc} critical</span>" if nc else ""
+                if t in notes:
+                    crit += ' · <span style="color:#B54708;font-weight:600">see note</span>'
+                st.markdown(f'<div class="rc-card-t">{esc(t)}</div><div class="rc-card-s">{esc(company(t))}</div>'
+                            f'<div class="rc-card-row">{call_badge(b.get("call"))}'
+                            f'<span class="rc-muted">{esc(b.get("confidence"))}%</span></div>'
+                            f'<div class="rc-card-m">{nf} material item{"s" if nf != 1 else ""}{crit}</div>',
+                            unsafe_allow_html=True)
+                sel = st.session_state["pick"] == t
+                if st.button("Viewing" if sel else "Open brief", key=f"open_{wk.name}_{t}", use_container_width=True,
+                             type="primary" if sel else "secondary"):
+                    st.session_state["pick"] = t
+                    st.rerun()
         t = st.session_state["pick"]
         meta, items = load(wk / "packets" / t)
         st.markdown("---")
@@ -353,12 +381,12 @@ A perfect score mostly tells us these cases are too easy; the final set will be 
                   crit["3_injection"]["pass"]),
                  ("Stable call", "rule: same call in at least 2 of 3 runs", f"{crit['4_stability']['value']} cases",
                   crit["4_stability"]["pass"])]
-        for col, (name, rule, val, ok) in zip(st.columns(4), tiles):
+        for col, (name, rule, val, ok) in zip(st.columns(4, gap="medium"), tiles):
             with col.container(border=True):
-                st.markdown(f'<div class="rc-kicker">{esc(name)}</div><div class="rc-big">{esc(val)}</div>'
-                            f'<div class="rc-muted">{esc(rule)}</div>'
-                            f'<span class="rc-badge {"rc-ok" if ok else "rc-bad"}" style="margin-top:.4rem">'
-                            f'{"✓ PASS" if ok else "✗ FAIL"}</span>', unsafe_allow_html=True)
+                st.markdown(f'<div class="rc-tile"><div class="rc-kicker">{esc(name)}</div><div class="rc-big">{esc(val)}</div>'
+                            f'<div class="rc-muted" style="margin-bottom:.8rem">{esc(rule)}</div>'
+                            f'<span class="rc-badge {"rc-ok" if ok else "rc-bad"}">'
+                            f'{"✓ PASS" if ok else "✗ FAIL"}</span></div>', unsafe_allow_html=True)
         st.caption(f"Also recorded, not part of the pass rule: runs that over-flagged a trap or routine item "
                    f"{summary.get('overflag_runs')}; runs whose first answer failed the source check and needed the "
                    f"one allowed retry {summary.get('retry_runs')}.")
@@ -382,7 +410,7 @@ A perfect score mostly tells us these cases are too easy; the final set will be 
             "Events found": " · ".join(f"{x['events_found']}/{x['events_total']}" for x in rs) if ev else "n/a",
             "Hit": "✓" if summary.get("per_case", {}).get(c.name, {}).get("hit") else "✗",
         })
-    st.markdown("#### All 10 cases")
+    st.markdown('<h4 class="rc-section">All 10 cases</h4>', unsafe_allow_html=True)
     st.dataframe(rows, hide_index=True, use_container_width=True,
                  column_config={"What happened": st.column_config.TextColumn(width="large"),
                                 "Hit": st.column_config.TextColumn(width="small")})
@@ -395,7 +423,7 @@ A perfect score mostly tells us these cases are too easy; the final set will be 
             st.markdown(f"**{x['case'].replace('_', ' ')} run {x['run']}**")
             st.code("\n".join(x["first_attempt_problems"]), language=None)
 
-    st.markdown("#### Case explorer")
+    st.markdown('<h4 class="rc-section">Case explorer</h4>', unsafe_allow_html=True)
     cc1, cc2 = st.columns([3, 2])
     case = cc1.selectbox("Test case", cases, format_func=lambda p: f"{p.name.replace('_', ' ')} · "
                          f"{company(json.loads((p / 'packet.json').read_text())['ticker'])}")
@@ -428,7 +456,7 @@ A perfect score mostly tells us these cases are too easy; the final set will be 
 with tab_run:
     if not ANTHROPIC_KEY:
         with st.container(border=True):
-            st.markdown("#### Live runs are switched off on this deployment")
+            st.markdown('<h4 class="rc-section">Live runs are switched off on this deployment</h4>', unsafe_allow_html=True)
             st.markdown("Live runs need a paid model API key, which the team does not have yet. The Watchlist briefs "
                         "and Test results tabs were produced by the same code, prompt and source check.")
             st.markdown("**Want the agent run on a company-week of your choice?** Send the ticker (S&P 500) and the week to "
@@ -436,7 +464,7 @@ with tab_run:
             st.markdown(f"**Run it yourself:** clone the [repo]({REPO}), add your own key to `.env`, and follow the "
                         f"[RUNBOOK]({REPO}/blob/main/RUNBOOK.md).")
     else:
-        st.markdown("#### Build a fresh brief, live")
+        st.markdown('<h4 class="rc-section">Build a fresh brief, live</h4>', unsafe_allow_html=True)
         st.markdown('<div class="rc-muted">The same code as the other tabs: it collects the week\'s SEC filings and '
                     'GDELT news, computes the price inputs, asks the model for a brief, and runs the source check '
                     '(with one retry). Takes 1–2 minutes. Live briefs are not saved.</div>', unsafe_allow_html=True)
@@ -476,12 +504,12 @@ with tab_run:
 
 # ---------------------------------------------------------------- about
 with tab_about:
-    st.markdown("#### The decision it supports")
+    st.markdown('<h4 class="rc-section">The decision it supports</h4>', unsafe_allow_html=True)
     st.markdown("Every Monday, an analyst at a student-managed investment fund brings a call on each stock on a "
                 "10-stock watchlist to the portfolio meeting: add, hold or trim. Receipts reads last week's filings and "
                 "news for each stock and writes a short brief so the analyst walks in with the material items and the "
                 "evidence on both sides. **The analyst checks the quotes that matter and makes the call. The agent never acts.**")
-    st.markdown("#### How a brief is made")
+    st.markdown('<h4 class="rc-section">How a brief is made</h4>', unsafe_allow_html=True)
     steps = [("1 · Collect", "Code pulls the week's SEC EDGAR filings (8-K, press release, Form 4, 10-Q/10-K) and news "
                              "(GDELT), and numbers every document."),
              ("2 · Compute", "Code, not the model, computes price inputs from Yahoo Finance: returns, excess return vs "
@@ -490,23 +518,23 @@ with tab_about:
                            "evidence for and against, and what would change the call."),
              ("4 · Check", "Code checks every quote is verbatim in its cited document and every number is backed. On a "
                            "failure the model gets the problems and one retry.")]
-    for col, (h, body) in zip(st.columns(4), steps):
-        with col.container(border=True, height=190):
-            st.markdown(f'<div style="font-weight:700;color:#1F3A5F">{h}</div><div class="rc-muted" '
-                        f'style="margin-top:.3rem;line-height:1.5">{body}</div>', unsafe_allow_html=True)
-    a, b = st.columns(2)
+    for col, (h, body) in zip(st.columns(4, gap="medium"), steps):
+        with col.container(border=True):
+            st.markdown(f'<div class="rc-step-card"><div style="font-weight:700;color:#1F3A5F">{h}</div><div class="rc-muted" '
+                        f'style="margin-top:.5rem;line-height:1.6">{body}</div></div>', unsafe_allow_html=True)
+    a, b = st.columns(2, gap="large")
     with a:
-        st.markdown("#### What it will not do")
+        st.markdown('<h4 class="rc-section">What it will not do</h4>', unsafe_allow_html=True)
         st.markdown("- Trade, or connect to any brokerage account\n- Give price targets, position sizes or orders\n"
                     "- Use facts that are not in the documents\n- Follow instructions found inside a document")
     with b:
-        st.markdown("#### Links")
+        st.markdown('<h4 class="rc-section">Links</h4>', unsafe_allow_html=True)
         st.markdown(f"- [Code on GitHub]({REPO}) · [RUNBOOK]({REPO}/blob/main/RUNBOOK.md)\n"
                     f"- [Pre-registered criteria]({REPO}/blob/main/eval/CRITERIA.md) · "
                     f"[Errata]({REPO}/blob/main/eval/ERRATA-2026-11-20.md)\n"
                     f"- [Prompt]({REPO}/blob/main/receipts/prompt.py) · [Source check]({REPO}/blob/main/receipts/verify.py)\n"
                     f"- [Changelog]({REPO}/blob/main/CHANGELOG.md)")
-    st.markdown("#### Data sources")
+    st.markdown('<h4 class="rc-section">Data sources</h4>', unsafe_allow_html=True)
     st.dataframe([
         {"Source": "SEC EDGAR", "Used for": "8-K text and press releases, Form 4, 10-Q/10-K"},
         {"Source": "GDELT DOC 2.0", "Used for": "News for past weeks"},
